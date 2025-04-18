@@ -2,97 +2,159 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Rocket, Building2, ChartBar, LineChart, Globe2, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-pitch-light">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-pitch-light to-white">
       <Navbar />
       
       <main className="flex-grow">
-        {/* Hero Section */}
+        {/* Hero Section with Split Design */}
         <section className="py-16 md:py-24 px-6 container mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-pitch-navy leading-tight">
-                Where <span className="bg-gradient-to-r from-pitch-blue to-pitch-green text-transparent bg-clip-text">Startups</span> Meet <span className="bg-gradient-to-r from-pitch-teal to-pitch-green text-transparent bg-clip-text">Investors</span>
-              </h1>
-              <p className="text-lg text-pitch-gray">
-                PitchSwipe Capital connects innovative startups with investors through 30-second video pitches. Swipe right on the next unicorn.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-pitch-blue hover:bg-pitch-teal text-white" asChild>
-                  <Link to="/startup-signup">I'm a Startup</Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-pitch-blue text-pitch-blue hover:bg-pitch-blue/10" asChild>
-                  <Link to="/investor-signup">I'm an Investor</Link>
-                </Button>
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Left Side - Startups */}
+            <div className="space-y-6 p-8 rounded-2xl bg-gradient-to-br from-pitch-blue/5 to-pitch-teal/5 border border-pitch-blue/10 animate-fade-in">
+              <div className="flex items-center gap-3 mb-4">
+                <Rocket className="w-8 h-8 text-pitch-blue" />
+                <h2 className="text-2xl font-bold text-pitch-blue">For Startups</h2>
+              </div>
+              <h3 className="text-xl font-semibold text-pitch-navy">Share Your Vision in 30 Seconds</h3>
+              <p className="text-pitch-gray">Upload your pitch video and connect with potential investors who share your vision.</p>
+              <Button size="lg" className="bg-pitch-blue hover:bg-pitch-teal text-white" asChild>
+                <Link to="/startup-signup">Join as a Startup</Link>
+              </Button>
+              <div className="mt-6 grid grid-cols-2 gap-4">
+                <div className="p-4 rounded-lg bg-white shadow-sm border border-pitch-blue/10">
+                  <ChartBar className="w-6 h-6 text-pitch-blue mb-2" />
+                  <p className="text-sm text-pitch-gray">Quick Funding Access</p>
+                </div>
+                <div className="p-4 rounded-lg bg-white shadow-sm border border-pitch-blue/10">
+                  <Globe2 className="w-6 h-6 text-pitch-teal mb-2" />
+                  <p className="text-sm text-pitch-gray">Global Reach</p>
+                </div>
               </div>
             </div>
-            <div className="relative h-80 md:h-96">
-              <div className="absolute top-0 right-0 w-full max-w-md mx-auto">
-                <div className="card-swipe-container">
-                  <div className="swipe-card bg-white p-6 rotate-3 shadow-xl z-30">
-                    <div className="h-48 bg-gradient-to-br from-pitch-blue/20 to-pitch-teal/20 rounded-lg mb-4"></div>
-                    <h3 className="text-xl font-bold">EcoTech Solutions</h3>
-                    <p className="text-pitch-gray">Sustainable energy for all businesses</p>
-                  </div>
-                  <div className="swipe-card bg-white p-6 -rotate-2 shadow-xl z-20 translate-y-4">
-                    <div className="h-48 bg-gradient-to-br from-pitch-green/20 to-pitch-blue/20 rounded-lg mb-4"></div>
-                    <h3 className="text-xl font-bold">FinTrack AI</h3>
-                    <p className="text-pitch-gray">AI-powered financial analysis</p>
-                  </div>
+
+            {/* Right Side - Investors */}
+            <div className="space-y-6 p-8 rounded-2xl bg-gradient-to-br from-pitch-navy/5 to-pitch-blue/5 border border-pitch-navy/10 animate-fade-in">
+              <div className="flex items-center gap-3 mb-4">
+                <Building2 className="w-8 h-8 text-pitch-navy" />
+                <h2 className="text-2xl font-bold text-pitch-navy">For Investors</h2>
+              </div>
+              <h3 className="text-xl font-semibold text-pitch-navy">Discover the Next Unicorn</h3>
+              <p className="text-pitch-gray">Swipe through curated startup pitches and find your next investment opportunity.</p>
+              <Button size="lg" variant="outline" className="border-pitch-navy text-pitch-navy hover:bg-pitch-navy/10" asChild>
+                <Link to="/investor-signup">Join as an Investor</Link>
+              </Button>
+              <div className="mt-6 grid grid-cols-2 gap-4">
+                <div className="p-4 rounded-lg bg-white shadow-sm border border-pitch-navy/10">
+                  <LineChart className="w-6 h-6 text-pitch-navy mb-2" />
+                  <p className="text-sm text-pitch-gray">Smart Filtering</p>
+                </div>
+                <div className="p-4 rounded-lg bg-white shadow-sm border border-pitch-navy/10">
+                  <Zap className="w-6 h-6 text-pitch-green mb-2" />
+                  <p className="text-sm text-pitch-gray">Instant Connect</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* How It Works */}
+        {/* Featured Startups Section */}
         <section className="py-16 bg-white px-6">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Featured Startups</h2>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <Card className="p-6 border-none shadow-lg">
-                <div className="bg-pitch-blue/10 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                  <span className="font-bold text-pitch-blue text-xl">1</span>
+              <Card className="group p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-br from-pitch-blue/5 to-pitch-teal/5">
+                <div className="h-48 bg-gradient-to-br from-pitch-blue to-pitch-teal rounded-lg mb-4 overflow-hidden">
+                  <video 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                    src="https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-smart-watch-with-app-ready-to-start-12791-large.mp4"
+                  />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Create Your Profile</h3>
-                <p className="text-pitch-gray">Sign up as a startup or an investor and complete your profile.</p>
+                <h3 className="text-xl font-bold">EcoTech Solutions</h3>
+                <p className="text-pitch-gray">Revolutionary solar technology increasing efficiency by 30%</p>
+                <div className="mt-4 flex gap-2">
+                  <span className="text-xs px-2 py-1 rounded-full bg-pitch-blue/10 text-pitch-blue">CleanTech</span>
+                  <span className="text-xs px-2 py-1 rounded-full bg-pitch-green/10 text-pitch-green">Series A</span>
+                </div>
               </Card>
               
-              <Card className="p-6 border-none shadow-lg">
-                <div className="bg-pitch-teal/10 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                  <span className="font-bold text-pitch-teal text-xl">2</span>
+              <Card className="group p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-br from-pitch-teal/5 to-pitch-green/5">
+                <div className="h-48 bg-gradient-to-br from-pitch-teal to-pitch-green rounded-lg mb-4 overflow-hidden">
+                  <video 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                    src="https://assets.mixkit.co/videos/preview/mixkit-woman-scanning-her-cell-phone-to-pay-12790-large.mp4"
+                  />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{`Upload Your Pitch`}</h3>
-                <p className="text-pitch-gray">Startups upload a 30-second video pitch showcasing their business.</p>
+                <h3 className="text-xl font-bold">FinTrack AI</h3>
+                <p className="text-pitch-gray">AI-powered financial analysis with 87% accuracy</p>
+                <div className="mt-4 flex gap-2">
+                  <span className="text-xs px-2 py-1 rounded-full bg-pitch-blue/10 text-pitch-blue">FinTech</span>
+                  <span className="text-xs px-2 py-1 rounded-full bg-pitch-teal/10 text-pitch-teal">Seed</span>
+                </div>
               </Card>
               
-              <Card className="p-6 border-none shadow-lg">
-                <div className="bg-pitch-green/10 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                  <span className="font-bold text-pitch-green text-xl">3</span>
+              <Card className="group p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-br from-pitch-green/5 to-pitch-blue/5">
+                <div className="h-48 bg-gradient-to-br from-pitch-green to-pitch-blue rounded-lg mb-4 overflow-hidden">
+                  <video 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                    src="https://assets.mixkit.co/videos/preview/mixkit-medical-healthcare-computer-interface-display-2216-large.mp4"
+                  />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Connect & Collaborate</h3>
-                <p className="text-pitch-gray">Investors swipe right on promising startups and begin conversations.</p>
+                <h3 className="text-xl font-bold">HealthSync</h3>
+                <p className="text-pitch-gray">Revolutionary telehealth platform with AI diagnostics</p>
+                <div className="mt-4 flex gap-2">
+                  <span className="text-xs px-2 py-1 rounded-full bg-pitch-blue/10 text-pitch-blue">HealthTech</span>
+                  <span className="text-xs px-2 py-1 rounded-full bg-pitch-green/10 text-pitch-green">Series A</span>
+                </div>
               </Card>
             </div>
           </div>
         </section>
         
-        {/* CTA Section */}
-        <section className="py-16 md:py-24 pitch-gradient px-6">
-          <div className="container mx-auto text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Startup Journey?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">Join thousands of startups and investors already using PitchSwipe Capital</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="bg-white text-pitch-blue hover:bg-opacity-90" asChild>
-                <Link to="/startup-signup">Get Started as Startup</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-                <Link to="/investor-signup">Sign Up as Investor</Link>
-              </Button>
+        {/* CTA Section with Split Design */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Startup CTA */}
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-pitch-blue to-pitch-teal p-8 text-white">
+                <div className="relative z-10">
+                  <h2 className="text-3xl font-bold mb-4">Ready to Pitch Your Startup?</h2>
+                  <p className="mb-6 text-white/90">Join thousands of innovative startups already using PitchSwipe Capital</p>
+                  <Button size="lg" className="bg-white text-pitch-blue hover:bg-white/90" asChild>
+                    <Link to="/startup-signup">Get Started as Startup</Link>
+                  </Button>
+                </div>
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIxMDAlIiB5MT0iMjEuMTgyJSIgeDI9IjUwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjMjAxRTFGIiBvZmZzZXQ9IjAlIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzIwMUUxRiIgc3RvcC1vcGFjaXR5PSIwIiBvZmZzZXQ9IjEwMCUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNMTQ0MCA1MTJWLjA2M0g5NTguMzg3Yy0yNC4zNTcgMjc2LjgxLTI0My4xMDEgNDk0LjI5LTUxOS44NzUgNTExLjg4N0gxNDQweiIgZmlsbD0idXJsKCNhKSIgZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsLW9wYWNpdHk9Ii4yNSIvPjwvc3ZnPg==')] opacity-50"></div>
+              </div>
+              
+              {/* Investor CTA */}
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-pitch-navy to-pitch-blue p-8 text-white">
+                <div className="relative z-10">
+                  <h2 className="text-3xl font-bold mb-4">Looking to Invest?</h2>
+                  <p className="mb-6 text-white/90">Access a curated selection of promising startups</p>
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+                    <Link to="/investor-signup">Sign Up as Investor</Link>
+                  </Button>
+                </div>
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIxMDAlIiB5MT0iMjEuMTgyJSIgeDI9IjUwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjMjAxRTFGIiBvZmZzZXQ9IjAlIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzIwMUUxRiIgc3RvcC1vcGFjaXR5PSIwIiBvZmZzZXQ9IjEwMCUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNMTQ0MCA1MTJWLjA2M0g5NTguMzg3Yy0yNC4zNTcgMjc2LjgxLTI0My4xMDEgNDk0LjI5LTUxOS44NzUgNTExLjg4N0gxNDQweiIgZmlsbD0idXJsKCNhKSIgZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsLW9wYWNpdHk9Ii4yNSIvPjwvc3ZnPg==')] opacity-50"></div>
+              </div>
             </div>
           </div>
         </section>
